@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/notice"
+        android:icon="@drawable/ic_baseline_notice"
+        android:title="Notice"
+        />
+    <item
+        android:id="@+id/faculty"
+        android:icon="@drawable/ic_baseline_faculty"
+        android:title="Faculty"
+        />
+    <item
+        android:id="@+id/gallery"
+        android:icon="@drawable/ic_baseline_image_24"
+        android:title="Gallery"
+        />
+    <item
+        android:id="@+id/interviewExp"
+        android:icon="@drawable/ic_baseline_menu_interview_exp"
+        android:title="Interview Experience"
+        />
+
+</menu>
