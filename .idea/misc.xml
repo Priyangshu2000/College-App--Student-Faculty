@@ -6,12 +6,18 @@
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.177" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/drawable/ic_baseline_person_2_24.xml" value="0.177" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/activity_faculty_info.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/activity_full_image.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/fragment_faculty.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/fragment_gallery.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/fragment_interview_experience.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/fragment_notice.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/no_data_found.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/singleInterviewExp.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/singlefaculty.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/singleimage.xml" value="0.25" />
+        <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/singleinterviewexp.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/layout/singlenotice.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/menu/main_menu.xml" value="0.25" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/CollegeAppStudentFaculty/app/src/main/res/menu/tabbed_bar.xml" value="0.25" />

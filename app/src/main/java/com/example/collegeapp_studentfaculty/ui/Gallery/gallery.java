@@ -2,65 +2,100 @@ package com.example.collegeapp_studentfaculty.ui.Gallery;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.collegeapp_studentfaculty.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link gallery#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class gallery extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public gallery() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment gallery.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static gallery newInstance(String param1, String param2) {
-        gallery fragment = new gallery();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    RecyclerView convocation,independence;
+    GalleryAdapter inadapter,conadapter;
+    DatabaseReference galleryRef;
+    List<String> listcon,listin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gallery, container, false);
+        View view= inflater.inflate(R.layout.fragment_gallery, container, false);
+        convocation=view.findViewById(R.id.convocation_rv);
+        independence=view.findViewById(R.id.independence_rv);
+
+        galleryRef= FirebaseDatabase.getInstance().getReference().child("Images");
+        getConvoImage();
+        getindependentImage();
+
+        listin=new ArrayList<>();
+        inadapter=new GalleryAdapter(listin,getContext());
+        GridLayoutManager gridLayoutManage1=new GridLayoutManager(getContext(),4);
+        independence.setAdapter(inadapter);
+        independence.setLayoutManager(gridLayoutManage1);
+
+        listcon=new ArrayList<>();
+        conadapter=new GalleryAdapter(listcon,getContext());
+        GridLayoutManager gridLayoutManage2=new GridLayoutManager(getContext(),4);
+        convocation.setAdapter(conadapter);
+        convocation.setLayoutManager(gridLayoutManage2);
+
+
+
+        return view;
+    }
+
+    private void getindependentImage() {
+        galleryRef.child("others").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                listin.clear();
+                for(DataSnapshot d:snapshot.getChildren()){
+                    String imageUrl=d.getValue(String.class);
+                    listin.add(imageUrl);
+//                    Toast.makeText(getContext(), listin.isEmpty()+"2", Toast.LENGTH_SHORT).show();
+                }
+                inadapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getConvoImage() {
+        galleryRef.child("convocation").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listcon.clear();
+                for(DataSnapshot d:snapshot.getChildren()) {
+                    String imageUrl = d.getValue(String.class);
+                    listcon.add(imageUrl);
+//                    Toast.makeText(getContext(), "Convo"+ d.getKey(), Toast.LENGTH_SHORT).show();
+                }
+                conadapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
